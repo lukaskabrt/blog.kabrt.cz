@@ -1,0 +1,24 @@
+#recipe Blog
+#t BlogTemplate
+
+// Customize your settings and add new ones here
+Settings[Keys.Host] = "blog.kabrt.cz";
+Settings[BlogKeys.Title] = "Lukas Kabrt";
+Settings[BlogKeys.Description] = "Lukas Kabrt";
+
+Settings[BlogKeys.CaseInsensitiveTags] = true;
+Settings[BlogKeys.IndexFullPosts] = true;
+
+// Add any pipeline customizations here
+int renderPagesIndex = Pipelines.IndexOf(Blog.RenderPages);
+Pipelines.Remove(Blog.RenderPages);
+Pipelines.Insert(
+  renderPagesIndex,
+  Blog.RenderPages,
+  (IPipeline)new Wyam.Web.Pipelines.RenderPages(
+    Blog.RenderPages,
+    new Wyam.Web.Pipelines.RenderPagesSettings
+    {
+      Pipelines = new string[] { Blog.Pages },
+      Layout = (doc, ctx) => "/_PageLayout.cshtml"
+    }));

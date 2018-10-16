@@ -1,0 +1,15 @@
+Title: All Tags
+---
+@{
+    Layout = "/_LayoutWithSidebar.cshtml";
+
+    var posts = Model.DocumentList(Keys.PageDocuments)
+        .Where(x => x.ContainsKey(BlogKeys.Published))
+        .OrderByDescending(x => x.Get<DateTime>(BlogKeys.Published));
+}
+
+<div class="container">
+    <h1>@Model.WithoutSettings.String(BlogKeys.Title)</h1>
+
+    @Html.Partial("_PostList", Model.DocumentList(Keys.PageDocuments).OrderByDescending(x => x.Get<DateTime>(BlogKeys.Published)))
+</div>
