@@ -29,12 +29,6 @@ Pipelines.Insert(tagsIndex, Blog.Tags, new Wyam.Web.Pipelines.Archive(
         GroupKeyMetadataKey = BlogKeys.Tag
     }));
 
-//var tagPipeline = Pipelines["Tags"];
-//var tagWriteFileModuleIndex = tagPipeline.IndexOf("WriteFiles");
-//tagPipeline.Insert(tagWriteFileModuleIndex,
-//    new Meta(Keys.WritePath, (doc, ctx) => "tags/" + System.IO.Path.GetFileNameWithoutExtension(doc.Get<string>(Keys.RelativeFilePath)).ToLower() + "/index.html")
-//);
-
 var renderBlogsPipeline = Pipelines[Blog.RenderBlogPosts];
 var renderBlogsWriteFileModuleIndex = renderBlogsPipeline.IndexOf("WriteFiles");
 renderBlogsPipeline.Insert(renderBlogsWriteFileModuleIndex,
