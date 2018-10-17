@@ -14,7 +14,7 @@ Title: All Tags
             <h1>@Model.WithoutSettings.String(BlogKeys.Title)</h1>
 
             <div class="post-body">
-                <ul class="list-inline post-tags mt-4">
+                <ul class="list-inline post-tags mt-4 ml-0">
                     @foreach (IDocument tagDocument in tags) {
                         string tag = tagDocument.String(BlogKeys.Tag);
                         string postCount = tagDocument.String(Keys.TotalItems);
