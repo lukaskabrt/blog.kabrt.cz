@@ -1,0 +1,12 @@
+<svg width="490" height="490" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_1" d="m280,278a153,153 0 1 0 -2,2l170,170m-91,-117l110,110l-26,26l-110,-110" stroke-linecap="round" stroke-width="36" stroke="#444444" fill="none"/>
+  <text font-weight="bold" stroke="#444444" transform="matrix(6.619823711686422,0,0,6.619823711686422,-598.8807337292767,-826.2226512206931) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_2" y="156.933209" x="103.174068" stroke-width="0" fill="#444444">:-(</text>
+ </g>
+</svg>
