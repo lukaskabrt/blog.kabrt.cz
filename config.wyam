@@ -1,6 +1,8 @@
 #recipe Blog
 #t BlogTemplate
 
+#n Wyam.Minification
+
 // Customize your settings and add new ones here
 Settings[Keys.Host] = "blog.kabrt.cz";
 Settings[BlogKeys.Title] = "Lukas Kabrt";
@@ -52,4 +54,18 @@ Pipelines.Insert(renderPagesIndex, Blog.RenderPages,
     }),
     new WriteFiles(),
     new Sort((x, y) => Comparer<string>.Default.Compare(x.String(Keys.Title), y.String(Keys.Title)))
+);
+
+Pipelines.Add("CSS",
+	ReadFiles("assets/css/*.css"),
+	new Wyam.Minification.MinifyCss(),
+	new Combine(),
+	WriteFiles((doc, ctx) =>  "assets/css/style.min.css")
+);
+
+Pipelines.Add("JS",
+    ReadFiles("assets/js/*.js"),
+    new Wyam.Minification.MinifyJs(),
+    new Combine(),
+	WriteFiles((doc, ctx) =>  "assets/js/blog.min.js")
 );
