@@ -14,4 +14,6 @@ Right now my focus is on web development and cloud technologies.
 
 You know that feeling, right?
 
-![Mountains as calling](/content/about/mountains.jpg)
+<a href="/content/about/mountains.jpg" data-toggle="lightbox">
+    <img src="/content/about/mountains.jpg" class="img-fluid" alt="Mountains are calling">
+</a>
