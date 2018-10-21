@@ -1,7 +1,7 @@
 Title: About Me
 ShowInFooter: false
 ---
-I am a software developer, outdoor enthusiastic, runner, skier, climber and an amateur photographer.
+I am a software developer, outdoor enthusiast, runner, skier, climber and an amateur photographer.
 
 ## Software developer
 I started with programming as a child on the old Atari XE computer because it seemed like an amazing adventure and 20 years later I still feel the same.
