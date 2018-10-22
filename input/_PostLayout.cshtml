@@ -10,26 +10,17 @@
 <div class="container">
     <div class="post-single">
         @if(postImage != null) {
-            <div class="post-thumbnail"><img src="@postImage" class="img-fluid"></div>
+        <div class="post-thumbnail"><img src="@postImage" class="img-fluid"></div>
         }
 
         <div class="post-details">
             @if(postCategory != null) {
-                <div class="post-meta d-flex justify-content-between">
-                    <div class="category"><span>@postCategory</span></div>
-                </div>
+            <div class="post-meta d-flex justify-content-between">
+                <div class="category"><span>@postCategory</span></div>
+            </div>
             }
 
             <h1>@Model.WithoutSettings.String(BlogKeys.Title)</h1>
-            <div class="post-footer d-flex align-items-center flex-column flex-sm-row">
-                <div class="author d-flex align-items-center flex-wrap">
-                    <div class="avatar"><img src="/assets/img/lukas-kabrt.jpg" alt="Lukas Kabrt" class="img-fluid"></div>
-                    <div class="title"><span>Lukas Kabrt</span></div>
-                </div>
-                <div class="d-flex align-items-center flex-wrap">
-                    <div class="date"><i class="icon-clock"></i> @published.ToShortDateString()</div>
-                </div>
-            </div>
             <div class="post-body">
                 @RenderBody()
             </div>
@@ -40,6 +31,15 @@
                 <a class="tag" href="@Context.GetLink(tagDocument)">@tag</a>
                     }
                 }
+            </div>
+            <div class="post-footer d-flex align-items-center flex-column flex-sm-row">
+                <div class="author d-flex align-items-center flex-wrap">
+                    <div class="avatar"><img src="/assets/img/lukas-kabrt.jpg" alt="Lukas Kabrt" class="img-fluid"></div>
+                    <div class="title"><span>Lukas Kabrt</span></div>
+                </div>
+                <div class="d-flex align-items-center flex-wrap">
+                    <div class="date"><i class="icon-clock"></i> @published.ToShortDateString()</div>
+                </div>
             </div>
         </div>
     </div>

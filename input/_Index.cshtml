@@ -5,14 +5,16 @@
 <div class="container">
     <div class="row">
         <main class="col-lg-8">
+            @*
             <section class="intro pt-0 pb-0">
                 <div class="container">
                     <div class="row">
-                        <h2 class="h3">Some great intro here</h2>
+                        <h2 class="h2">Some great intro here</h2>
                         <p class="text-big">Place a nice <strong>introduction</strong> here <strong>to catch reader's attention</strong>. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.</p>
                     </div>
                 </div>
             </section>
+            *@
 
             <div class="container posts-listing">
                 @foreach(IDocument post in Model.DocumentList(Keys.PageDocuments)) {
@@ -30,7 +32,7 @@
                                 <div class="category"><span>@postCategory</span></div>
                                             }
                             </div>
-                            <h2 class="h3">@post.WithoutSettings.String(BlogKeys.Title)</h2>
+                            <h2 class="h2">@post.WithoutSettings.String(BlogKeys.Title)</h2>
 
                             @Html.Raw(post.Content)
 
