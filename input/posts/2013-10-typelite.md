@@ -8,10 +8,6 @@ To streamline the integration between TypeScript and C# code on the server I wro
 
 I think this utility might be useful for other developers, so I made it available under MIT license. It's called TypeLITE.
 
-^^^
-FIGure
-^^^ and its caption
-
 ### Example
 
 **POCO classes:**
