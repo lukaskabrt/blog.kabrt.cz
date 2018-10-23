@@ -1,6 +1,6 @@
 Title: Hosting a static website on Azure
 Published: 23/10/2018
-Tags: [Azure, Azure storage, Wyam]
+Tags: [Azure, Azure storage, Static website]
 ---
 
 It has been possible to host static files in Azure Storage for a long time, but there were some limitations. Probably the most important one - you weren't able to specify the default document for a directory. You could display a page with the URL `https://blog.kabrt.cz/index.html`, but URL `https://blog.kabrt.cz` would return the 404 page. There were ways around it (e.g. Azure Functions proxy), but it felt too cumbersome. With the introduction of Static Website in Azure Storage, this limitation is gone and I'd like to explore this feature and move my blog to Azure.
