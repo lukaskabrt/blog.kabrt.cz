@@ -31,13 +31,13 @@ I am going to show, how to setup Static Website hosting in Azure Blob Storage on
 ### Create a new storage account
 
 <figure class="figure w-100 text-center">
-    <a href="/content/2018-10-hosting-static-website-on-azure/01-new-storage-account.png" data-toggle="lightbox">
+    <a href="/content/2018-10-hosting-static-website-on-azure/01-new-storage-account.png" data-toggle="lightbox" data-gallery="2018-10-23-post">
         <img src="/content/2018-10-hosting-static-website-on-azure/01-new-storage-account_t.png" class="figure-img img-fluid" alt="New storage account">
     </a>
 </figure>
 
 <figure class="figure w-100 text-center">
-    <a href="/content/2018-10-hosting-static-website-on-azure/02-storage-account-settings.png" data-toggle="lightbox">
+    <a href="/content/2018-10-hosting-static-website-on-azure/02-storage-account-settings.png" data-toggle="lightbox" data-gallery="2018-10-23-post">
         <img src="/content/2018-10-hosting-static-website-on-azure/02-storage-account-settings_t.png" class="figure-img img-fluid" alt="Storage account settings">
     </a>
 </figure>
@@ -45,7 +45,7 @@ I am going to show, how to setup Static Website hosting in Azure Blob Storage on
 Choose an appropriate resource group, storage account name (remember the account name is part of the URL and it can't be changed later) and [replication mode](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy). I have all source files for my website in the repository, so I have chosen Locally redundant storage. Make sure to select Standart performance tier and General purpose v2 account as Static Website hosting is only available on this account type. It also doesn't make a lot of sense to choose Cold Access tier, because the majority of files will be read very often and you pay more for data retrieval form Cold Access tier storage.
 
 <figure class="figure w-100 text-center">
-    <a href="/content/2018-10-hosting-static-website-on-azure/03-storage-review.png" data-toggle="lightbox">
+    <a href="/content/2018-10-hosting-static-website-on-azure/03-storage-review.png" data-toggle="lightbox" data-gallery="2018-10-23-post">
         <img src="/content/2018-10-hosting-static-website-on-azure/03-storage-review_t.png" class="figure-img img-fluid" alt="Storage account review">
     </a>
 </figure>
@@ -53,7 +53,7 @@ Choose an appropriate resource group, storage account name (remember the account
 Review the settings and click create.
 
 <figure class="figure w-100 text-center">
-    <a href="/content/2018-10-hosting-static-website-on-azure/04-storage-deployed.png" data-toggle="lightbox">
+    <a href="/content/2018-10-hosting-static-website-on-azure/04-storage-deployed.png" data-toggle="lightbox" data-gallery="2018-10-23-post">
         <img src="/content/2018-10-hosting-static-website-on-azure/04-storage-deployed_t.png" class="figure-img img-fluid" alt="Completed deployment">
     </a>
 </figure>
@@ -65,7 +65,7 @@ After several seconds the storage account is created and you can open Storage Ac
 The Website hosting feature can be enabled in the Settings section.
 
 <figure class="figure w-100 text-center">
-    <a href="/content/2018-10-hosting-static-website-on-azure/05-website-hosting.png" data-toggle="lightbox">
+    <a href="/content/2018-10-hosting-static-website-on-azure/05-website-hosting.png" data-toggle="lightbox" data-gallery="2018-10-23-post">
         <img src="/content/2018-10-hosting-static-website-on-azure/05-website-hosting_t.png" class="figure-img img-fluid" alt="Website hosting settings">
     </a>
 </figure>
@@ -73,7 +73,7 @@ The Website hosting feature can be enabled in the Settings section.
 Click Enabled and select the index document name and the error document path.
 
 <figure class="figure w-100 text-center">
-    <a href="/content/2018-10-hosting-static-website-on-azure/06-website-hosting.png" data-toggle="lightbox">
+    <a href="/content/2018-10-hosting-static-website-on-azure/06-website-hosting.png" data-toggle="lightbox" data-gallery="2018-10-23-post">
         <img src="/content/2018-10-hosting-static-website-on-azure/06-website-hosting_t.png" class="figure-img img-fluid" alt="Website hosting settings">
     </a>
 </figure>
@@ -112,7 +112,7 @@ AzCopy
 When the upload finishes, you should see a summary of the operation
 
 <figure class="figure w-100 text-center">
-    <a href="/content/2018-10-hosting-static-website-on-azure/08-azcopy-summary.png" data-toggle="lightbox">
+    <a href="/content/2018-10-hosting-static-website-on-azure/08-azcopy-summary.png" data-toggle="lightbox" data-gallery="2018-10-23-post">
         <img src="/content/2018-10-hosting-static-website-on-azure/08-azcopy-summary_t.png" class="figure-img img-fluid" alt="AzCopy summary">
     </a>
 </figure>
@@ -120,7 +120,7 @@ When the upload finishes, you should see a summary of the operation
 and finally, you could test the website in the browser
 
 <figure class="figure w-100 text-center">
-    <a href="/content/2018-10-hosting-static-website-on-azure/09-website.png" data-toggle="lightbox">
+    <a href="/content/2018-10-hosting-static-website-on-azure/09-website.png" data-toggle="lightbox" data-gallery="2018-10-23-post">
         <img src="/content/2018-10-hosting-static-website-on-azure/09-website_t.png" class="figure-img img-fluid" alt="Website">
     </a>
 </figure>
