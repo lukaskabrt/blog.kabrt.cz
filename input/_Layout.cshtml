@@ -53,7 +53,15 @@
     <link rel="stylesheet" href="/assets/css/style.min.css" id="theme-stylesheet">
 
     <!-- Favicon-->
-    <link rel="shortcut icon" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/favicon-apple-60x60.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/favicon-apple-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/png" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
 
     @if (Context.String(BlogKeys.RssPath) != null) {
     <link type="application/rss+xml" rel="alternate" title="@Context.String(BlogKeys.Title)" href="@Context.GetLink(Context.String(BlogKeys.RssPath))" />
