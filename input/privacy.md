@@ -11,4 +11,6 @@ The site is hosted on Azure Static websites. They could be logging some informat
 
 I use Google Analytics. The purpose of this service is to gain a feedback on the popularity of pages and the ways visitors come to the site. The analytics data has statistical nature, is anonymized and is retained for 26 months.
 
+The site contains a third party solution that allows visitors to post comments on posts - Disqus. They might set some cookies and collect some logs.
+
 And just to make it official, this site may use cookies. If you don't agree with the use of cookies, you can disable them in your browser settings.

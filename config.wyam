@@ -9,7 +9,7 @@ Settings[BlogKeys.Title] = "Lukas Kabrt";
 Settings[BlogKeys.Description] = "Lukas Kabrt";
 
 Settings[BlogKeys.CaseInsensitiveTags] = true;
-Settings[BlogKeys.IndexFullPosts] = true;
+Settings[BlogKeys.IndexFullPosts] = false;
 
 // Add any pipeline customizations here
 
