@@ -3,6 +3,9 @@
 
 #n Wyam.Minification
 
+System.Globalization.CultureInfo.DefaultThreadCurrentCulture
+    = System.Globalization.CultureInfo.CreateSpecificCulture("en-US");
+
 // Customize your settings and add new ones here
 Settings[Keys.Host] = "blog.kabrt.cz";
 Settings[BlogKeys.Title] = "Lukas Kabrt";

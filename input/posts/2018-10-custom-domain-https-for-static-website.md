@@ -1,5 +1,5 @@
 Title: HTTPS and custom domain for a static website on Azure
-Published: 01/11/2018
+Published: 11/01/2018
 Tags: [Azure, Azure storage, Cloudflare, Static website]
 ---
 

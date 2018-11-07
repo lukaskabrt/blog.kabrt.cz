@@ -1,5 +1,5 @@
 Title: Clipping OpenStreetMap data with SpatialLITE
-Published: 26/03/2012
+Published: 03/26/2012
 Tags: [OpenStreetMap, SpatialLITE]
 ---
 In the [previous post](/posts/2012-03-filtering-osm-data-with-spatiallite) I have shown, how to do simple filtering of the OSM data with the [SpatialLITE library](https://github.com/lukaskabrt/SpatialLITE). Today I will go a step further and do something more complicated - extract data from OSM file within specific bounding box.

@@ -1,5 +1,5 @@
 Title: TypeLITE - TypeScript interfaces from .NET classes
-Published: 10/3/2013
+Published: 03/10/2013
 Tags: [TypeScript, TypeLITE]
 ---
 In the last few weeks I was doing some client-side development in [TypeScript](https://www.typescriptlang.org/). It is amazing tool, that increased my productivity in client-side development dramatically.

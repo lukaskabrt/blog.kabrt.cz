@@ -1,5 +1,5 @@
 Title: Filtering OSM data with SpatialLITE
-Published: 11/03/2012
+Published: 03/11/2012
 Tags: [OpenStreetMap, SpatialLITE]
 ---
 
