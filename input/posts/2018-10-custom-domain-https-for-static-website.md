@@ -3,7 +3,7 @@ Published: 11/01/2018
 Tags: [Azure, Azure storage, Cloudflare, Static website]
 ---
 
-In the [previous post](http://localhost:5080/posts/2018-10-hosting-static-website-on-azure), I set up my blog to run on Azure Static Website. However, it was accessible only on the domain provided by Azure `blogkabrtcz.z6.web.core.windows.net` and I'd like to use my own domain `blog.kabrt.cz`.
+In the [previous post](/posts/2018-10-hosting-static-website-on-azure), I set up my blog to run on Azure Static Website. However, it was accessible only on the domain provided by Azure `blogkabrtcz.z6.web.core.windows.net` and I'd like to use my own domain `blog.kabrt.cz`.
 
 It is possible to setup Azure Static Website to use a custom domain, but it doesn't support SSL certificates for the custom domain (as of October 2018) ... and in these days SSL is must. You can use [Azure CDN](https://azure.microsoft.com/en-us/services/cdn) to overcome this limitation, but I decided to use another solution - [Cloudflare CDN](https://www.cloudflare.com/). They not only give you a free SSL certificate as Azure CDN but also you don't pay for the traffic between CDN and your visitors. You only pay for the traffic between Azure and Cloudflare edge nodes, which cache content of your website for the specified time. In my case, the savings are few cents per a month, but more visited websites can save a significant amount of money.
 
