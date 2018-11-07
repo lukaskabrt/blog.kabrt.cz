@@ -1,0 +1,12 @@
+pool:
+  vmImage: 'Hosted VS2017'
+
+steps:
+- powershell: ./build.ps1
+  displayName: 'Run Cake build script'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: website'
+  inputs:
+    PathtoPublish: output
+    ArtifactName: website
