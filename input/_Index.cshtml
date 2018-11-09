@@ -1,87 +1,20 @@
 @{
-    var first = true;
     var olderPosts = Documents[Blog.BlogPosts].Skip(Model.DocumentList(Keys.PageDocuments).Count).Take(4);
 }
+
 <div class="container">
     <div class="row">
         <main class="col-lg-8">
-            @*
-                <section class="intro pt-0 pb-0">
-                    <div class="container">
-                        <div class="row">
-                            <h2 class="h2">Some great intro here</h2>
-                            <p class="text-big">Place a nice <strong>introduction</strong> here <strong>to catch reader's attention</strong>. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.</p>
-                        </div>
-                    </div>
-                </section>
-            *@
-
-            <div class="container posts-listing">
-                @foreach(IDocument post in Model.DocumentList(Keys.PageDocuments)) {
-                    var postCategory = post.String("Category");
-
-                @if(!first) {
-                <hr />
-                    }
-
-                <div class="post">
-                    <div class="post-details">
-                        <div class="post-meta d-flex justify-content-between">
-                            <div class="date meta-last">@(post.Get<DateTime>(BlogKeys.Published).ToLongDateString(Context))</div>
-                            @if(postCategory != null) {
-                            <div class="category"><span>@postCategory</span></div>
-                                            }
-                        </div>
-                        <a href="@Context.GetLink(post)">
-                            <h2 class="h2">@post.WithoutSettings.String(BlogKeys.Title)</h2>
-                        </a>
-                        @Html.Raw(post.String(BlogKeys.Excerpt))
-
-                        <footer class="post-footer d-flex align-items-center">
-                            <div class="author d-flex align-items-center flex-wrap">
-                                <div class="avatar"><img src="/assets/img/lukas-kabrt.jpg" alt="Lukas Kabrt" class="img-fluid"></div>
-                                <div class="title"><span>Lukas Kabrt</span></div>
-                            </div>
-                            <div class="date"><i class="icon-clock"></i> @(post.Get<DateTime>(BlogKeys.Published).ToShortDateString())</div>
-                        </footer>
-                    </div>
-                </div>
-
-                    first = false;
-                }
-            </div>
+            @Html.Partial("_PostList", Model.DocumentList(Keys.PageDocuments))
         </main>
         <aside class="col-lg-4">
-            @Html.Partial("_TagsWidget")
+            @Html.Partial("_WidgetTags")
 
             @if(olderPosts.Any()) {
-            <div class="widget latest-posts">
-                <header>
-                    <h3 class="h6">Older Posts</h3>
-                </header>
-                <div class="blog-posts">
-                    @foreach(IDocument post in olderPosts) {
-                    <a href="@Context.GetLink(post)">
-                        <div class="item d-flex align-items-center">
-                            <div class="title">
-                                <strong>@post.WithoutSettings.String(BlogKeys.Title)</strong>
-                                <div class="d-flex align-items-center">
-                                    <div class="comments"><i class="icon-clock"></i> @(post.Get<DateTime>(BlogKeys.Published).ToShortDateString())</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                        }
-                </div>
-                <div class="blog-post">
-                    <div class="posts-nav">
-                        <a href="@Context.GetLink(Context.String(BlogKeys.PostsPath))" class="text-center w-100 pt-3 pb-3">
-                            <strong class="text-primary">Archive</strong>
-                        </a>
-                    </div>
-                </div>
-            </div>
+                @Html.Partial("_WidgetPosts", olderPosts)
             }
+
+            @Html.Partial("_WidgetContacts")
         </aside>
     </div>
 </div>

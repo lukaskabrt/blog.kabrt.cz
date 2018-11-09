@@ -4,18 +4,16 @@
         .OrderByDescending(x => x.Get<int>(Keys.TotalItems));
 }
 
-<!-- Widget [Tags Cloud Widget]-->
 <div class="widget tags">
     <header>
-        <h3 class="h6">Tags</h3>
+        <div class="header-text">Tags</div>
     </header>
-    <ul class="list-inline">
+    <div class="tag-cloud">
         @foreach (IDocument tagDocument in tags) {
             string tag = tagDocument.String(BlogKeys.Tag);
             string postCount = tagDocument.String(Keys.TotalItems);
-            <li class="list-inline-item">
+        
                 <a class="tag" href="@Context.GetLink(tagDocument)"> @tag (@postCount)</a>
-            </li>
         }
-    </ul>
+    </div>
 </div>

@@ -59,8 +59,17 @@ Pipelines.Insert(renderPagesIndex, Blog.RenderPages,
     new Sort((x, y) => Comparer<string>.Default.Compare(x.String(Keys.Title), y.String(Keys.Title)))
 );
 
+int sassIndex = Pipelines.IndexOf("Sass");
+Pipelines.Remove("Sass");
+Pipelines.Insert(sassIndex, "Sass",
+    new ReadFiles("**/{!.git,}/**/{!_,}*.scss"),
+    new Wyam.Sass.Sass(),
+    new Wyam.Minification.MinifyCss(),
+    new WriteFiles()
+);
+
 Pipelines.Add("CSS",
-	ReadFiles("assets/css/*.css"),
+	ReadFiles("assets/css/*.css", "assets/scss/*.css"),
 	new Wyam.Minification.MinifyCss(),
 	new Combine(),
 	WriteFiles((doc, ctx) =>  "assets/css/style.min.css")
