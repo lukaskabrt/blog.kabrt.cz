@@ -1,5 +1,5 @@
 ﻿@{
-    List<Tuple<string, string>> pages = Context
+    List<Tuple<string, string>> links = Context
        .Documents[Blog.Pages]
        .Where(x => x.Bool(BlogKeys.ShowInNavbar, true))
        .Where(x => x.FilePath(Keys.RelativeFilePath)?.FullPath?.StartsWith("index") == (bool?)false)
@@ -9,14 +9,14 @@
        .ToList();
 
     if(Documents[Blog.Tags].Any()) {
-       pages.Insert(0, Tuple.Create("Tags", Context.GetLink("tags/index.html")));
+       links.Insert(0, Tuple.Create("Tags", Context.GetLink("tags/index.html")));
     }
 
     if(Documents[Blog.BlogPosts].Any() && Context.Bool(BlogKeys.GenerateArchive)) {
-       pages.Insert(0, Tuple.Create("Archive", Context.GetLink(Context.String(BlogKeys.PostsPath) + "/index.html")));
+       links.Insert(0, Tuple.Create("Archive", Context.GetLink(Context.String(BlogKeys.PostsPath) + "/index.html")));
     }
 
-    List<Tuple<string, string>> pagesFooter = Context
+    List<Tuple<string, string>> linksFooter = Context
        .Documents[Blog.Pages]
        .Where(x => x.Bool("ShowInFooter", true))
        .Where(x => x.FilePath(Keys.RelativeFilePath)?.FullPath?.StartsWith("index") == (bool?)false)
@@ -84,9 +84,9 @@
 
                 <div id="navbarcollapse" class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
-                        @foreach(var page in pages) {
+                        @foreach(var link in links) {
                         <li class="nav-item">
-                            <a href="@page.Item2" class="nav-link active">@page.Item1</a>
+                            <a href="@link.Item2" class="nav-link active">@link.Item1</a>
                         </li>
                         }
                     </ul>
@@ -103,8 +103,8 @@
                 &copy; @DateTime.UtcNow.Year Lukas Kabrt. Content on this site is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
             </div>
             <nav class="nav ml-auto justify-content-center">
-                @foreach(var page in pagesFooter) {
-                <a class="nav-link" href="@page.Item2">@page.Item1</a>
+                @foreach(var link in linksFooter) {
+                    <a class="nav-link" href="@link.Item2">@link.Item1</a>
                 }
             </nav>
         </div>
