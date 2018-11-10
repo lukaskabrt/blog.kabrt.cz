@@ -14,7 +14,7 @@
                         @post.WithoutSettings.String(BlogKeys.Title)
                     </div>
                     <ul class="post-meta">
-                        <li><i class="icon-clock"></i>@(post.Get<DateTime>(BlogKeys.Published).ToShortDateString())</li>
+                        <li>@(post.Get<DateTime>(BlogKeys.Published).ToString("MMMM dd, yyyy"))</li>
                     </ul>
                 </a>
             </li>

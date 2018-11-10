@@ -1,8 +1,9 @@
 @model IEnumerable<IDocument>
 
-@foreach(IDocument post in Model) {
-    var tags = post.Get<string[]>(BlogKeys.Tags) ?? new string[] {};    
-    
+    @foreach(IDocument post in Model) {
+    var tags = post.Get<string[]>(BlogKeys.Tags) ?? new string[] {};
+    var absoluteUrl = "https://blog.kabrt.cz" + Context.GetLink(post);
+
     <article class="post">
         <div class="post-header">
             <h2 class="post-title">
@@ -14,13 +15,13 @@
                     @foreach (string tag in tags.OrderBy(x => x)) {
                         var tagDocument = Documents[Blog.Tags].FirstOrDefault(x => x.String(BlogKeys.Tag) == tag && x.Get<int>(Keys.CurrentPage) == 1);
                         if (tagDocument != null) {
-                            <a class="tag" href="@Context.GetLink(tagDocument)">@tag</a>
+                    <a class="tag" href="@Context.GetLink(tagDocument)">@tag</a>
                         }
                     }
                 </li>
                 <li class="ml-auto">
-                    <a href="@Context.GetLink(post)"><img class="icon" src="/assets/icons/share-link.svg" /></a>
-                    <a href="https://twitter.com/intent/tweet?url=@Context.GetLink(post)"><img class="icon" src="/assets/icons/share-twitter.svg" /></a>
+                    <a href="@absoluteUrl"><img class="icon" src="/assets/icons/share-link.svg" /></a>
+                    <a href="https://twitter.com/intent/tweet?url=@absoluteUrl"><img class="icon" src="/assets/icons/share-twitter.svg" /></a>
                 </li>
             </ul>
         </div>
