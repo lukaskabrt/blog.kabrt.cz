@@ -5,26 +5,34 @@
 
     var postImage = Model.String(BlogKeys.Image);
     var postCategory = Model.String("Category");
+
+    var absoluteUrl = "https://blog.kabrt.cz" + @Context.GetLink(Model);
 }
 
 <div class="container">
     <article class="post">
         <div class="post-header">
             @if (postImage != null) {
-                <div class="post-thumbnail"><img src="@postImage" class="img-fluid"></div>
+            <div class="post-thumbnail"><img src="@postImage" class="img-fluid"></div>
             }
+
             <h1>
                 @Model.WithoutSettings.String(BlogKeys.Title)
             </h1>
-            <ul class="post-meta">
-                <li><i class="icon-clock"></i>@published.ToLongDateString(Context)</li>
-                <li class="tags">
+
+            <ul class="post-meta d-lg-flex">
+                <li>@published.ToString("MMMM dd, yyyy")</li>
+                <li class="tag-cloud">
                     @foreach (string tag in tags.OrderBy(x => x)) {
                         var tagDocument = Documents[Blog.Tags].FirstOrDefault(x => x.String(BlogKeys.Tag) == tag && x.Get<int>(Keys.CurrentPage) == 1);
                         if (tagDocument != null) {
-                            <a class="tag" href="@Context.GetLink(tagDocument)">@tag</a>
+                    <a class="tag" href="@Context.GetLink(tagDocument)">@tag</a>
                         }
                     }
+                </li>
+                <li class="ml-auto">
+                    <a href="@absoluteUrl"><img class="icon" src="/assets/icons/share-link.svg" /></a>
+                    <a href="https://twitter.com/intent/tweet?url=@absoluteUrl"><img class="icon" src="/assets/icons/share-twitter.svg" /></a>
                 </li>
             </ul>
         </div>

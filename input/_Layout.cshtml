@@ -24,12 +24,14 @@
        .Where(x => !string.IsNullOrEmpty(x.Item1))
        .OrderBy(x => x.Item1)
        .ToList();
+
+    var title = Model.WithoutSettings.String(BlogKeys.Title) ?? "Lukas Kabrt";
 }
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>@Model.WithoutSettings.String(BlogKeys.Title)</title>
+    <title>@title</title>
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,8 +48,8 @@
     </script>
 
     <link rel="stylesheet" href="/assets/css/blog.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" integrity="sha256-HAaDW5o2+LelybUhfuk0Zh2Vdk8Y2W2UeKmbaXhalfA=" crossorigin="anonymous" />     
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" integrity="sha256-HAaDW5o2+LelybUhfuk0Zh2Vdk8Y2W2UeKmbaXhalfA=" crossorigin="anonymous" />
+
     <!-- Favicon-->
     <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/favicon-apple-60x60.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/favicon-apple-180x180.png">
@@ -60,11 +62,11 @@
     <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
 
     @if (Context.String(BlogKeys.RssPath) != null) {
-        <link type="application/rss+xml" rel="alternate" title="@Context.String(BlogKeys.Title)" href="@Context.GetLink(Context.String(BlogKeys.RssPath))" />
+    <link type="application/rss+xml" rel="alternate" title="@Context.String(BlogKeys.Title)" href="@Context.GetLink(Context.String(BlogKeys.RssPath))" />
     }
 
     @if (Context.String(BlogKeys.AtomPath) != null) {
-        <link type="application/atom+xml" rel="alternate" title="@Context.String(BlogKeys.Title)" href="@Context.GetLink(Context.String(BlogKeys.AtomPath))" />
+    <link type="application/atom+xml" rel="alternate" title="@Context.String(BlogKeys.Title)" href="@Context.GetLink(Context.String(BlogKeys.AtomPath))" />
     }
 </head>
 <body>
