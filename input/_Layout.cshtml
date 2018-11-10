@@ -36,7 +36,7 @@
     <meta name="robots" content="all,follow">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-635380-7"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-635380-7"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -45,14 +45,9 @@
         gtag('config', 'UA-635380-7');
     </script>
 
-    <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" integrity="sha256-HAaDW5o2+LelybUhfuk0Zh2Vdk8Y2W2UeKmbaXhalfA=" crossorigin="anonymous" async />
-
-    <!-- theme stylesheet-->
-    <link rel="stylesheet" href="/assets/scss/site.css">
-    <link rel="stylesheet" href="/assets/css/style.min.css">
-    @*<link rel="stylesheet" href="/assets/css/style.min.css" id="theme-stylesheet">*@
-
+    <link rel="stylesheet" href="/assets/css/blog.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" integrity="sha256-HAaDW5o2+LelybUhfuk0Zh2Vdk8Y2W2UeKmbaXhalfA=" crossorigin="anonymous" />     
+    
     <!-- Favicon-->
     <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/favicon-apple-60x60.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/favicon-apple-180x180.png">
@@ -74,7 +69,7 @@
 </head>
 <body>
     <header class="site-header">
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-light navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="@Context.GetLink("/")">
                     <img src="/assets/img/logo.png" alt="LK">
@@ -88,9 +83,9 @@
                 <div id="navbarcollapse" class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
                         @foreach(var page in pages) {
-                            <li class="nav-item">
-                                <a href="@page.Item2" class="nav-link active">@page.Item1</a>
-                            </li>
+                        <li class="nav-item">
+                            <a href="@page.Item2" class="nav-link active">@page.Item1</a>
+                        </li>
                         }
                     </ul>
                 </div>
@@ -101,21 +96,20 @@
     @RenderBody()
 
     <footer>
-        <div class="container d-lg-flex align-items-center" >
+        <div class="container d-lg-flex align-items-center">
             <div class="text-center text-left-lg">
                 &copy; @DateTime.UtcNow.Year Lukas Kabrt. Content on this site is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
             </div>
             <nav class="nav ml-auto justify-content-center">
                 @foreach(var page in pagesFooter) {
-                    <a class="nav-link" href="@page.Item2">@page.Item1</a>
+                <a class="nav-link" href="@page.Item2">@page.Item1</a>
                 }
             </nav>
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js" integrity="sha256-Y1rRlwTzT5K5hhCBfAFWABD4cU13QGuRN6P5apfWzVs=" crossorigin="anonymous"></script>
-    <script src="/assets/js/blog.min.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js" integrity="sha256-Y1rRlwTzT5K5hhCBfAFWABD4cU13QGuRN6P5apfWzVs=" crossorigin="anonymous"></script>
+    <script defer src="/assets/js/blog.min.js"></script>
 </body>
 </html>

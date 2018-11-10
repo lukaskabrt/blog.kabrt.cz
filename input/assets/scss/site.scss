@@ -12,29 +12,16 @@
 @import "../vendor/bootstrap/scss/grid";
 
 @import "../vendor/bootstrap/scss/tables";
-@import "../vendor/bootstrap/scss/forms";
 @import "../vendor/bootstrap/scss/buttons";
 @import "../vendor/bootstrap/scss/transitions";
-@import "../vendor/bootstrap/scss/dropdown";
-@import "../vendor/bootstrap/scss/button-group";
-@import "../vendor/bootstrap/scss/input-group";
-@import "../vendor/bootstrap/scss/custom-forms";
 @import "../vendor/bootstrap/scss/nav";
 @import "../vendor/bootstrap/scss/navbar";
-@import "../vendor/bootstrap/scss/card";
-@import "../vendor/bootstrap/scss/breadcrumb";
 @import "../vendor/bootstrap/scss/pagination";
 @import "../vendor/bootstrap/scss/badge";
-@import "../vendor/bootstrap/scss/jumbotron";
 @import "../vendor/bootstrap/scss/alert";
-@import "../vendor/bootstrap/scss/progress";
 @import "../vendor/bootstrap/scss/media";
-@import "../vendor/bootstrap/scss/list-group";
-@import "../vendor/bootstrap/scss/close";
 @import "../vendor/bootstrap/scss/modal";
-@import "../vendor/bootstrap/scss/tooltip";
-@import "../vendor/bootstrap/scss/popover";
-@import "../vendor/bootstrap/scss/carousel";
+@import "../vendor/bootstrap/scss/close";
 @import "../vendor/bootstrap/scss/utilities";
 @import "../vendor/bootstrap/scss/print";
 
@@ -257,4 +244,28 @@ footer {
             }
         }
     }
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+figure {
+    margin: 15px 0;
+}
+
+.blockquote {
+    font-size: 0.9rem;
+    padding: 15px 30px;
+
+    border-left: 3px solid $secondary;
+    background-color: lighten($color: $secondary, $amount: 40);
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.ekko-lightbox-nav-overlay a {
+    color: $primary !important;
 }

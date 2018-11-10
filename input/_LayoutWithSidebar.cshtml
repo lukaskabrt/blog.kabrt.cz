@@ -1,15 +1,21 @@
 ﻿@{
     Layout = "_Layout";
+
+    var disableTagsWidget = this.ViewBag.DisableTagsWidget ?? false;
 }
 
 <div class="container">
     <div class="row">
         <!-- Latest Posts -->
-        <main class="post blog-post col-xl-8">
+        <main class="col-xl-8">
             @RenderBody()
         </main>
         <aside class="col-xl-4">
-            @Html.Partial("_WidgetTags")
+            @if (!disableTagsWidget) {
+                @Html.Partial("_WidgetTags")
+            }
+            
+            @Html.Partial("_WidgetContacts")
         </aside>
     </div>
 </div>

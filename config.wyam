@@ -64,20 +64,17 @@ Pipelines.Remove("Sass");
 Pipelines.Insert(sassIndex, "Sass",
     new ReadFiles("**/{!.git,}/**/{!_,}*.scss"),
     new Wyam.Sass.Sass(),
+    new Concat(
+        ReadFiles("assets/**/*.css")
+    ),
+    new Combine(),
     new Wyam.Minification.MinifyCss(),
-    new WriteFiles()
-);
-
-Pipelines.Add("CSS",
-	ReadFiles("assets/css/*.css", "assets/scss/*.css"),
-	new Wyam.Minification.MinifyCss(),
-	new Combine(),
-	WriteFiles((doc, ctx) =>  "assets/css/style.min.css")
+    new WriteFiles((doc, ctx) =>  "assets/css/blog.min.css").UseWriteMetadata(false)
 );
 
 Pipelines.Add("JS",
-    ReadFiles("assets/js/*.js"),
-    new Wyam.Minification.MinifyJs(),
+    ReadFiles("assets/**/*.js"),
+    OrderBy((doc, ctx) => doc["SourceFileName"]),
     new Combine(),
 	WriteFiles((doc, ctx) =>  "assets/js/blog.min.js")
 );
