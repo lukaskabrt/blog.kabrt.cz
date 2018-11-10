@@ -88,13 +88,13 @@ There are many ways to upload files to a blob container - you can use <a href="/
 
 By default AzCopy is installed to the `c:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy` directory so open the Command prompt and navigate to the installation directory
 
-```
+```cmd
 cd "c:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy"
 ```
 
 Files from the local drive can be uploaded to the storage with the following command: 
 
-```
+```cmd
 AzCopy 
     /Source:c:\Users\Lukas\Source\Repos\blog.kabrt.cz\output 
     /Dest:https://blogkabrtcz.blob.core.windows.net/$web 
