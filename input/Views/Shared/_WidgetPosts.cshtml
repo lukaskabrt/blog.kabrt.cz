@@ -1,0 +1,25 @@
+@model IEnumerable<IDocument>
+
+<div class="widget posts">
+    <header>
+        <div class="header-text">Older Posts</div>
+    </header>
+    
+
+    <ul class="post-list">
+        @foreach (var post in Model) {
+            <li>
+                <a href="@Context.GetLink(post)" class="post-header">
+                    <div class="post-title">
+                        @post.WithoutSettings.String(BlogKeys.Title)
+                    </div>
+                    <ul class="post-meta">
+                        <li><i class="icon-clock"></i>@(post.Get<DateTime>(BlogKeys.Published).ToShortDateString())</li>
+                    </ul>
+                </a>
+            </li>
+        }
+    </ul>
+
+    <a href="@Context.GetLink(Context.String(BlogKeys.PostsPath))" class="btn btn-outline-primary">Archive</a>
+</div>

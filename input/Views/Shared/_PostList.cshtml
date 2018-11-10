@@ -1,0 +1,30 @@
+@model IEnumerable<IDocument>
+
+@foreach(IDocument post in Model) {
+    var tags = post.Get<string[]>(BlogKeys.Tags) ?? new string[] {};    
+    
+    <article class="post">
+        <div class="post-header">
+            <h2 class="post-title">
+                <a href="@Context.GetLink(post)">@post.WithoutSettings.String(BlogKeys.Title)</a>
+            </h2>
+            <ul class="post-meta">
+                <li><i class="icon-clock"></i>@(post.Get<DateTime>(BlogKeys.Published).ToLongDateString(Context))</li>
+                <li class="tags">
+                    @foreach (string tag in tags.OrderBy(x => x)) {
+                        var tagDocument = Documents[Blog.Tags].FirstOrDefault(x => x.String(BlogKeys.Tag) == tag && x.Get<int>(Keys.CurrentPage) == 1);
+                        if (tagDocument != null) {
+                            <a class="tag" href="@Context.GetLink(tagDocument)">@tag</a>
+                        }
+                    }
+                </li>
+            </ul>
+        </div>
+        <div class="post-content">
+            @Html.Raw(post.String(BlogKeys.Excerpt))
+        </div>
+        <div class="post-footer">
+            <a href="@Context.GetLink(post)" class="btn btn-outline-primary">Read More</a>
+        </div>
+    </article>
+}

@@ -1,23 +1,19 @@
-Title: All Tags
----
 @{
-    Layout = "_LayoutWithSidebar";
-    this.ViewBag.DisableTagsWidget = true;
-
     var tags = Documents[Blog.Tags]
         .GroupBy(x => x.String(BlogKeys.Tag)).Select(x => x.Where(p => p.Get<int>(Keys.CurrentPage) == 1).First())
         .OrderByDescending(x => x.Get<int>(Keys.TotalItems));
 }
 
-<div class="container post">
-    <h1>@Model.WithoutSettings.String(BlogKeys.Title)</h1>
-
+<div class="widget tags">
+    <header>
+        <div class="header-text">Tags</div>
+    </header>
     <div class="tag-cloud">
         @foreach (IDocument tagDocument in tags) {
             string tag = tagDocument.String(BlogKeys.Tag);
             string postCount = tagDocument.String(Keys.TotalItems);
-
-        <a class="tag" href="@Context.GetLink(tagDocument)"> @tag (@postCount)</a>
+        
+                <a class="tag" href="@Context.GetLink(tagDocument)"> @tag (@postCount)</a>
         }
     </div>
 </div>

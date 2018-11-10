@@ -3,17 +3,13 @@
     var postImage = Model.String(BlogKeys.Image);
 }
 
-<div class="container">
-    <div class="post-single">
-        @if(postImage != null) {
-            <div class="post-thumbnail"><img src="@postImage" class="img-fluid"></div>
-        }
+<div class="container post">
+    @if(postImage != null) {
+        <div class="post-thumbnail"><img src="@postImage" class="img-fluid"></div>
+    }
+    
+    <h1>@Model.WithoutSettings.String(BlogKeys.Title)</h1>
+    
+    @RenderBody()
 
-        <div class="post-details">
-            <h1>@Model.WithoutSettings.String(BlogKeys.Title)</h1>
-            <div class="post-body">
-                @RenderBody()
-            </div>
-        </div>
-    </div>
 </div>
