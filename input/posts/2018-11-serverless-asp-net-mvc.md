@@ -194,3 +194,5 @@ It might seem odd to return the action result without any parameters, but as des
 </figure>
 
 There might be some hidden caveats, especially in cases where ASP.NET Core application uses some properties from the `HttpContext` that aren't initialized by the Azure Functions Host. Another small disadvantage is startup time of the application, every now and then, when the platform spins up a new instance of our function application a user can experience few seconds long delay, because the internal application is initializing. According to my testing, the application stays active for 10-15 minutes after the last request, so the whole idea seems viable ... at least for my use case.
+
+The complete sample project can be dowmloaded from the [GitHub repository](https://github.com/lukaskabrt/blog-MvcOnAzureFunctions).
