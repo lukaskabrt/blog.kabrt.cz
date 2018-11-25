@@ -15,10 +15,8 @@ steps:
     custom: tool
     arguments: 'install -g Wyam.Tool'
 
-- task: BatchScript@1
+- script: wyam
   displayName: 'Build website'
-  inputs:
-    filename: wyam
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: website'
