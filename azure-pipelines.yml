@@ -8,8 +8,17 @@ pool:
   vmImage: 'vs2017-win2016'
 
 steps:
-- powershell: ./build.ps1
-  displayName: 'Run Cake build script'
+- task: DotNetCoreCLI@2
+  displayName: 'Install Wyam.Tool'
+  inputs:
+    command: custom
+    custom: tool
+    arguments: 'install -g Wyam.Tool'
+
+- task: BatchScript@1
+  displayName: 'Build website'
+  inputs:
+    filename: wyam
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: website'
