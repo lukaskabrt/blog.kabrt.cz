@@ -8,7 +8,8 @@ pool:
   vmImage: 'vs2017-win2016'
 
 steps:
-- script:  dotnet tool install --tool-path . Wyam.Tool
+- script: dotnet tool install --tool-path . Wyam.Tool
+  displayName: 'Install Wyam.Tool'
 
 - script: wyam
   displayName: 'Build website'
