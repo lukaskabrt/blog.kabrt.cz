@@ -8,14 +8,11 @@ pool:
   vmImage: 'vs2017-win2016'
 
 steps:
-- task: DotNetCoreCLI@2
-  displayName: 'Install Wyam.Tool'
-  inputs:
-    command: custom
-    custom: tool
-    arguments: 'install -g Wyam.Tool'
+-script: |
+  dotnet tool install --tool-path . Wyam.Tool
 
-- script: wyam
+- script: |
+  wyam
   displayName: 'Build website'
 
 - task: PublishBuildArtifacts@1
